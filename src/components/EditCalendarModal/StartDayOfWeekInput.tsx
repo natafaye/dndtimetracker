@@ -1,6 +1,7 @@
-import { ErrorMessage, Field, FormikErrors } from "formik";
+import { Field, FormikErrors } from "formik";
 import { FormLabel } from "react-bootstrap";
 import { DayOfTheWeek, StartDayOfWeekOfYear } from "../../shared/types";
+import ErrorMsg from "../ErrorMsg";
 
 type Props = {
     daysOfTheWeek: DayOfTheWeek[],
@@ -31,9 +32,7 @@ export default function StartDayOfWeekInput({ daysOfTheWeek, errors }: Props) {
                         <option value={index} key={index}>{dayOfWeek.name}</option>
                     ))}
                 </Field>
-                <label className="text-danger error-text ms-2">
-                    <small><ErrorMessage name="startDayOfWeekOfYear.year" /></small>
-                </label>
+                <ErrorMsg name="startDayOfWeekOfYear.year" className="ms-2"/>
             </div>
         </div>
     );

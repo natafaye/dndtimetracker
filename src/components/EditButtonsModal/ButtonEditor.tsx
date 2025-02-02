@@ -1,7 +1,8 @@
 import { faTrashAlt } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { ErrorMessage, Field, FormikErrors } from "formik";
+import { Field, FormikErrors } from "formik";
 import { TrackerButton } from "../../shared/types";
+import ErrorMsg from "../ErrorMsg";
 
 type Props = {
     index: number
@@ -34,18 +35,10 @@ export default function ButtonEditor({ index, remove, errors }: Props) {
                 </button>
             </div>
             <div className="col-12">
-                <p className="text-danger error-text">
-                    <small><ErrorMessage name={`buttonList.${index}.label`} /></small>
-                </p>
-                <p className="text-danger error-text">
-                    <small><ErrorMessage name={`buttonList.${index}.minutes`} /></small>
-                </p>
-                <p className="text-danger error-text">
-                    <small><ErrorMessage name={`buttonList.${index}.hours`} /></small>
-                </p>
-                <p className="text-danger error-text">
-                    <small><ErrorMessage name={`buttonList.${index}.days`} /></small>
-                </p>
+                <ErrorMsg name={`buttonList.${index}.label`}/>
+                <ErrorMsg name={`buttonList.${index}.minutes`}/>
+                <ErrorMsg name={`buttonList.${index}.hours`}/>
+                <ErrorMsg name={`buttonList.${index}.days`}/>
             </div>
         </div>
     );

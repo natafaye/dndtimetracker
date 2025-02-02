@@ -41,7 +41,7 @@ export default function DateTimeInput({ date, calendar }: Props) {
                 <div className="row">
                     <div className="col-4">
                         <FormLabel>Day of Week</FormLabel>
-                        <p className="form-text-with-label text-secondary">
+                        <p className="mt-1 text-secondary">
                             {calendar.daysOfTheWeek[getDayOfWeekIndex(date, calendar)].name}
                         </p>
                     </div>

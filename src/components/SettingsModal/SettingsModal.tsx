@@ -54,7 +54,7 @@ export default function SettingsModal({ show, toggle }: Props) {
                                     </Field>
                                 </div>
                                 <div className="col">
-                                    <p className="form-text-without-label text-sans-serif ms-2">
+                                    <p className="form-text-without-label text-sans-serif">
                                         {timeToString(now, calendar, formik.values.timeFormat)}
                                     </p>
                                 </div>
@@ -82,7 +82,7 @@ export default function SettingsModal({ show, toggle }: Props) {
                                     </Field>
                                 </div>
                                 <div className="col">
-                                    <p className="form-text-without-label text-sans-serif ms-2">
+                                    <p className="form-text-without-label text-sans-serif">
                                         {dateToString(now, calendar, formik.values.dateFormat)} &nbsp;
                                         {(formik.values.showSeasonIcon) ?
                                             <FontAwesomeIcon icon={getSeasonIcon(calendar.months[now.month].season)} /> :

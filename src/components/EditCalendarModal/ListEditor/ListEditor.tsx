@@ -1,9 +1,11 @@
 import { ReactNode, useEffect, useId, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { FieldArray, useFormikContext, FormikErrors } from 'formik';
-import { type CalendarListItem, Season, type TrackerCalendar } from '../../shared/types';
+import { type CalendarListItem, Season, type TrackerCalendar } from '../../../shared/types';
 import { Button, Collapse } from 'react-bootstrap';
 import ListEditorItem from './ListEditorItem';
+import classNames from 'classnames';
+import style from "./ListEditor.module.css"
 
 type Props = {
     title: string
@@ -54,7 +56,7 @@ function TimeTrackerListEditor({
                     <span className="d-inline-block ms-1">{title}</span>
                 </Button>
             </div>
-            <Collapse in={isOpen} className="w-100 collapsable-area">
+            <Collapse in={isOpen} className={classNames("w-100", style.collapseableArea)}>
                 <ul className="list-unstyled" id={editAreaID}>
                     <FieldArray name={name} render={() => <>
                         {isMonths &&

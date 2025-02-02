@@ -1,7 +1,8 @@
-import { ErrorMessage, Field, FormikErrors } from "formik";
+import { Field, FormikErrors } from "formik";
 import { ReactNode, useId } from "react"
 import { FormLabel } from "react-bootstrap";
-import { type Month, Season, type CalendarListItem } from "../../shared/types";
+import { type Month, Season, type CalendarListItem } from "../../../shared/types";
+import ErrorMsg from "../../ErrorMsg";
 
 type Props = {
     item: CalendarListItem
@@ -41,12 +42,8 @@ export default function ListEditorItem({ label, name, isMonth, errors }: Props) 
                 </>
             }
             <div className="col-12">
-                <p className="text-danger error-text">
-                    <small><ErrorMessage name={`${name}.name`} /></small>
-                </p>
-                <p className="text-danger error-text">
-                    <small><ErrorMessage name={`${name}.days`} /></small>
-                </p>
+                <ErrorMsg name={`${name}.name`} />
+                <ErrorMsg name={`${name}.days`} />
             </div>
         </li>
     )

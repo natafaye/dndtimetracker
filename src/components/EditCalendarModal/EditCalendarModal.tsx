@@ -1,4 +1,4 @@
-import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { Formik, Form, Field } from 'formik';
 import { useDispatch, useSelector } from 'react-redux';
 import { hourToString } from '../../utilities';
 import ListEditor from './ListEditor';
@@ -8,6 +8,7 @@ import { TrackerCalendar } from '../../shared/types';
 import { FormLabel, Modal } from 'react-bootstrap';
 import StartDayOfWeekInput from './StartDayOfWeekInput';
 import { calendarValidationSchema } from './calendarValidationSchema';
+import ErrorMsg from '../ErrorMsg';
 
 type Props = {
   show: boolean
@@ -68,7 +69,7 @@ export default function EditCalendarModal({ show, toggle }: Props) {
                         <option value={num} key={num}>{num}</option>
                       ))}
                     </Field>
-                    <ErrorMessage name="periodsInADay" component="div" className="text-danger" />
+                    <ErrorMsg name="periodsInADay"/>
                   </div>
                 </div>
                 <ListEditor
@@ -112,9 +113,7 @@ export default function EditCalendarModal({ show, toggle }: Props) {
                             min="1" max="50"
                             className={(errors.monthsInAYear) ? "form-control is-invalid" : "form-control"}
                           />
-                          <label className="text-danger error-text ms-2">
-                            <small><ErrorMessage name={"monthsInAYear"} /></small>
-                          </label>
+                          <ErrorMsg name="monthsInAYear"/>
                         </div>
                       </div>
                     </div>
@@ -136,7 +135,7 @@ export default function EditCalendarModal({ show, toggle }: Props) {
                           min="2" max="30"
                           className={(errors.daysInAWeek) ? "form-control is-invalid" : "form-control"}
                         />
-                        <ErrorMessage name="daysInAWeek" component="div" className="text-danger" />
+                        <ErrorMsg name="daysInAWeek"/>
                       </div>
                     </div>
                     <ListEditor

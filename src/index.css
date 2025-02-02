@@ -1,26 +1,16 @@
-.collapsable-area {
-  padding-left: 28px;
-}
-
+/* Put a bunch of extra margin on the top if there's no label to keep it inline with other fields */
 .form-text-without-label {
   margin-top: 37px;
 }
 
-.form-text-with-label {
-  margin-top: 5px;
-}
-
+/* A horizontal rule in a modal needs to extend out into the padding a bit */
 .modal-hr {
   margin-top: 0;
   margin-left: -24px;
   margin-right: -24px;
 }
 
-.error-text {
-  margin-top: 5px;
-  margin-bottom: 0px;
-}
-
-.striped> :nth-child(odd) {
+/* Give a striped effect to any list */
+.striped > :nth-child(odd) {
   background-color: #f1f1f1;
 }
