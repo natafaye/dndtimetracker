@@ -8,11 +8,12 @@ import IconPicker from './IconPicker';
 import DateTimeInput from '../DateTimeInput';
 import ErrorMsg from '../ErrorMsg';
 import { getEventValidationSchema } from './getEventValidationSchema';
+import { v4 as uuid } from "uuid"
 
 type Props = {
     show: boolean
     toggle: () => void
-    eventId?: number
+    eventId?: string
 }
 
 export default function EditEventModal({ show, toggle, eventId }: Props) {
@@ -25,7 +26,7 @@ export default function EditEventModal({ show, toggle, eventId }: Props) {
     let event = eventList.find(e => e.id === eventId);
     if (!event) {
         event = {
-            id: eventList.slice(-1)[0].id + 1,
+            id: uuid(),
             label: "New Event",
             icon: EventIcon.square,
             ...now

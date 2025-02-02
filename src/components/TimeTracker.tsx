@@ -5,13 +5,14 @@ import ButtonList from './ButtonList';
 import EventList from './EventList'
 import EditEventModal from './EditEventModal';
 import { Card } from 'react-bootstrap';
+import type { TrackerEvent } from '../shared/types';
 
 export default function TimeTracker() {
     const [showEditEventModal, setShowEditEventModal] = useState(false)
-    const [editEventId, setEditEventId] = useState<number | undefined>()
+    const [editEventId, setEditEventId] = useState<TrackerEvent['id'] | undefined>()
     const toggleEditEventModal = () => setShowEditEventModal(!showEditEventModal)
 
-    const startEditEvent = (id?: number) => {
+    const startEditEvent = (id?: TrackerEvent['id']) => {
         setEditEventId(id)
         setShowEditEventModal(true)
     }

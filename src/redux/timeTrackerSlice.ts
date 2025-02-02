@@ -26,7 +26,7 @@ const timeTrackerSlice = createSlice({
     addEvent: (state, action: PayloadAction<TrackerEvent>) => {
       state.eventList.push(action.payload);
     },
-    deleteEvent: (state, action: PayloadAction<number>) => {
+    deleteEvent: (state, action: PayloadAction<TrackerEvent['id']>) => {
       state.eventList = state.eventList.filter(
         (event) => event.id !== action.payload
       );

@@ -19,7 +19,7 @@ export default function TimeDisplay() {
         dateFormat 
     } = useSelector(selectSettings)
     
-    let seasonIcon = getSeasonIcon(calendar.months[now.month].season);
+    const seasonIcon = getSeasonIcon(calendar.months[now.month].season);
 
     // Generate background gradient
     const leftTime = {
@@ -45,7 +45,7 @@ export default function TimeDisplay() {
         hour: (leftTime.hour + hoursInTimeTrack) % 24,
         minutes: leftTime.minutes
     });
-    let timeBackgroundStyle = {
+    const timeBackgroundStyle = {
         background: `linear-gradient(90deg, ${leftColor} 0%, ${hourMarkers}, ${rightColor} 100%)`
     }
 

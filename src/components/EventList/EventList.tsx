@@ -5,7 +5,7 @@ import { TrackerEvent } from '../../shared/types';
 import { ConfirmModal, useConfirm } from '../ConfirmModal';
 
 type Props = {
-    onEdit: (id: number) => void
+    onEdit: (id: TrackerEvent['id']) => void
 }
 
 export default function EventList({ onEdit }: Props) {

@@ -13,7 +13,7 @@ export default function DayCell({ index }: Props) {
     const eventList = useSelector(selectEventList)
     const { daysInDaysTrack } = useSelector(selectSettings)
 
-    let currentDayIndex = Math.floor(daysInDaysTrack / 2);
+    const currentDayIndex = Math.floor(daysInDaysTrack / 2);
     const dayNumber = now.day + index - currentDayIndex
 
     let dayDisplay: number | string = dayNumber

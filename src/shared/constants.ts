@@ -1,12 +1,12 @@
 import { faDiceD20, faDragon, faFire, faMeteor, faSkullCrossbones, faSquare, faStar } from "@fortawesome/free-solid-svg-icons";
 
-export const requiredError = "${label} is required"; // eslint-disable-line no-template-curly-in-string
-export const numberError = "${label} must be an integer number"; // eslint-disable-line no-template-curly-in-string
-export const minError = "${label} can't be less than ${min}"; // eslint-disable-line no-template-curly-in-string
-export const maxError = "${label} can't be more than ${max}"; // eslint-disable-line no-template-curly-in-string
-export const minLengthError = "${label} can't be less than ${min} characters"; // eslint-disable-line no-template-curly-in-string
-export const maxLengthError = "${label} can't be more than ${max} characters"; // eslint-disable-line no-template-curly-in-string
-export const dayMaxError = "${label} can't be more than the number of days in the month"; // eslint-disable-line no-template-curly-in-string
+export const requiredError = "${label} is required";
+export const numberError = "${label} must be an integer number";
+export const minError = "${label} can't be less than ${min}";
+export const maxError = "${label} can't be more than ${max}";
+export const minLengthError = "${label} can't be less than ${min} characters";
+export const maxLengthError = "${label} can't be more than ${max} characters";
+export const dayMaxError = "${label} can't be more than the number of days in the month";
 
 export const EventIcon = {
     square: faSquare,

@@ -33,7 +33,7 @@ export function useConfirm(): [({ callback, message, buttonLabel }: ConfirmProps
     const [show, setShow] = useState(false)
     const [message, setMessage] = useState<ReactNode>("Are you sure?")
     const [buttonLabel, setButtonLabel] = useState<ReactNode>("Confirm")
-    const [callback, setCallback] = useState<() => void>(() => () => {})
+    const [callback, setCallback] = useState<() => void>(() => () => console.log("No callback given"))
 
     const confirm = ({ 
         callback,

@@ -4,4 +4,3 @@ Get calendar modal to open
 Icons in time track turn blue on mouseover
 Icons in time track don't show popover on mouseover
 Icons in days track are vertically off-center
-Change .id + 1 to use uuid

@@ -59,14 +59,14 @@ test('hourToString converts 0-23 hours to 1-12 hours', () => {
 // timeToString
 
 test('timeToString with TimeFormat.Hour shows only the hour', () => {
-    let dateTime = { ...starterDateTime }
+    const dateTime = { ...starterDateTime }
     expect(timeToString(dateTime, starterCalendar, TimeFormat.Hour)).toBe("12 AM");
     dateTime.hour = 17
     expect(timeToString(dateTime, starterCalendar, TimeFormat.Hour)).toBe("5 PM");
 })
 
 test('timeToString with TimeFormat.Hour_Minutes shows the hour and minutes', () => {
-    let dateTime = { ...starterDateTime }
+    const dateTime = { ...starterDateTime }
     expect(timeToString(dateTime, starterCalendar, TimeFormat.Hour_Minutes)).toBe("12:00 AM");
     dateTime.minutes = 3;
     expect(timeToString(dateTime, starterCalendar, TimeFormat.Hour_Minutes)).toBe("12:03 AM");
@@ -76,16 +76,16 @@ test('timeToString with TimeFormat.Hour_Minutes shows the hour and minutes', () 
 })
 
 test('timeToString with TimeFormat.Hour_Period shows the hour and period', () => {
-    let dateTime = { ...starterDateTime }
+    const dateTime = { ...starterDateTime }
     expect(timeToString(dateTime, starterCalendar, TimeFormat.Hour_Period)).toBe("12 p1");
     dateTime.hour = 20;
     expect(timeToString(dateTime, starterCalendar, TimeFormat.Hour_Period)).toBe("8 p2");
 })
 
 test('timeToString shows the correct period for all numbers of periods', () => {
-    let dateTime = { ...starterDateTime }
-    let calendar = getTestCalendar()
-    let periodsInADayList = [2, 3, 4, 6, 8, 12];
+    const dateTime = { ...starterDateTime }
+    const calendar = getTestCalendar()
+    const periodsInADayList = [2, 3, 4, 6, 8, 12];
     periodsInADayList.forEach((periodsInADay) => {
         calendar.periodsInADay = periodsInADay;
         calendar.periods = [...Array(periodsInADay)].map((_, index) => ({ id: index, name: "p" + (index + 1) }));
@@ -99,7 +99,7 @@ test('timeToString shows the correct period for all numbers of periods', () => {
 })
 
 test('timeToString with TIME_DISPLAY.HOUR_MINUTES_PERIOD shows the hour, minutes and period', () => {
-    let dateTime = { ...starterDateTime }
+    const dateTime = { ...starterDateTime }
     dateTime.minutes = 10;
     expect(timeToString(dateTime, starterCalendar, TimeFormat.Hour_Minutes_Period)).toBe("12:10 p1");
     dateTime.hour = 15;
@@ -147,14 +147,14 @@ test('getDayOfYear and getDateFromDayOfYear turn a number back and forth from a 
 // addTime
 
 test('addTime gives the correct new date', () => {
-    let dateTime = { ...starterDateTime }
+    const dateTime = { ...starterDateTime }
 
     dateTime.minutes = Math.floor(Math.random() * 49);
     dateTime.hour = Math.floor(Math.random() * 23);
     dateTime.month = Math.floor(Math.random() * (starterCalendar.months.length - 1));
     dateTime.day = Math.floor(Math.random() * (starterCalendar.months[dateTime.month].days - 1)) + 1;
     dateTime.year = Math.floor(Math.random() * 15);
-    let startDate = dateTime
+    const startDate = dateTime
 
     // Test basic add
     expect(addTime(startDate, { minutes: 10 }, starterCalendar))
@@ -196,14 +196,14 @@ test('addTime gives the correct new date', () => {
 })
 
 test('addTime works with negative time', () => {
-    let dateTime = { ...starterDateTime };
+    const dateTime = { ...starterDateTime };
 
     dateTime.minutes = Math.floor(Math.random() * 49) + 10;
     dateTime.hour = Math.floor(Math.random() * 22) + 1;
     dateTime.month = Math.floor(Math.random() * (starterCalendar.months.length - 2)) + 1;
     dateTime.day = Math.floor(Math.random() * (starterCalendar.months[dateTime.month].days - 2)) + 2;
     dateTime.year = Math.floor(Math.random() * 15);
-    let startDate = { minutes: dateTime.minutes, hour: dateTime.hour, day: dateTime.day, month: dateTime.month, year: dateTime.year };
+    const startDate = { minutes: dateTime.minutes, hour: dateTime.hour, day: dateTime.day, month: dateTime.month, year: dateTime.year };
 
     // Test basic add
     expect(addTime(dateTime, { minutes: -10 }, starterCalendar)).toEqual({ ...startDate, minutes: dateTime.minutes - 10 });
@@ -261,13 +261,13 @@ test('getDayOfWeekIndex gives the correct day of week index', () => {
 
     expect(getDayOfWeekIndex(dateTime, starterCalendar)).toBe(starterCalendar.startDayOfWeekOfYear.dayOfWeek);
 
-    let testData1 = addTime(dateTime, { days: 1 }, starterCalendar)
+    const testData1 = addTime(dateTime, { days: 1 }, starterCalendar)
     expect(getDayOfWeekIndex(testData1, starterCalendar)).toBe(
         (starterCalendar.startDayOfWeekOfYear.dayOfWeek + 1) % starterCalendar.daysOfTheWeek.length
     );
 
-    let daysToAdd = Math.floor(Math.random() * 500) + getDaysInYear(starterCalendar.months);
-    let testData2 = addTime(dateTime, { days: daysToAdd }, starterCalendar)
+    const daysToAdd = Math.floor(Math.random() * 500) + getDaysInYear(starterCalendar.months);
+    const testData2 = addTime(dateTime, { days: daysToAdd }, starterCalendar)
     expect(getDayOfWeekIndex(testData2, starterCalendar)).toBe(
         (starterCalendar.startDayOfWeekOfYear.dayOfWeek + (daysToAdd % daysInTheWeek)) % daysInTheWeek
     );
@@ -292,7 +292,7 @@ test('dateToString with DateFormat.None shows nothing', () => {
 })
 
 test('dateToString with DateFormat.Day shows the day', () => {
-    let dateTime = { ...starterDateTime };
+    const dateTime = { ...starterDateTime };
     dateTime.day = 1;
     expect(dateToString(dateTime, starterCalendar, DateFormat.Day)).toBe("Day 1");
     dateTime.day = 246;
@@ -300,7 +300,7 @@ test('dateToString with DateFormat.Day shows the day', () => {
 })
 
 test('dateToString with DateFormat.DayOfWeek_Day_Month shows day and month', () => {
-    let dateTime = { ...starterDateTime };
+    const dateTime = { ...starterDateTime };
 
     dateTime.month = 4;
     dateTime.day = 1;
@@ -326,7 +326,7 @@ test('dateToString with DateFormat.DayOfWeek_Day_Month shows day and month', () 
 })
 
 test('dateToString with DateFormat.Day_Month_Year shows day, month, and year', () => {
-    let dateTime = { ...starterDateTime };
+    const dateTime = { ...starterDateTime };
     dateTime.year = 1492;
     expect(dateToString(dateTime, starterCalendar, DateFormat.Day_Month_Year)).toBe(`1st of m0, Year ${dateTime.year}`);
 })
@@ -334,23 +334,23 @@ test('dateToString with DateFormat.Day_Month_Year shows day, month, and year', (
 // compareChronologically
 
 test('compareChronologically sorts lists of dates correctly', () => {
-    let testDate1 = { ...starterDateTime };
+    const testDate1 = { ...starterDateTime };
     testDate1.year = 4;
     testDate1.month = 1;
     testDate1.day = 3;
     testDate1.hour = 5;
     testDate1.minutes = 43;
-    let testDate2 = { ...testDate1 };
+    const testDate2 = { ...testDate1 };
     testDate2.day = 4;
-    let testDate3 = { ...testDate2 };
+    const testDate3 = { ...testDate2 };
     testDate3.hour = 20;
-    let testDate4 = { ...testDate3 };
+    const testDate4 = { ...testDate3 };
     testDate4.minutes = 44;
-    let testDate5 = { ...testDate4 };
+    const testDate5 = { ...testDate4 };
     testDate5.month = 1;
     testDate5.year = 5;
 
-    let dateList = [testDate5, testDate3, testDate1, testDate2, testDate4].sort(compareChronologically);
+    const dateList = [testDate5, testDate3, testDate1, testDate2, testDate4].sort(compareChronologically);
     expect(dateList[0]).toEqual(testDate1);
     expect(dateList[1]).toEqual(testDate2);
     expect(dateList[2]).toEqual(testDate3);
@@ -361,11 +361,11 @@ test('compareChronologically sorts lists of dates correctly', () => {
 // areWithinTime
 
 test('areWithinTime gives the correct answers when checking minutes', () => {
-    let testDate1 = { ...starterDateTime };
+    const testDate1 = { ...starterDateTime };
     const months = getTestCalendar().months
     if (months[testDate1.month].days === 1)
         months[testDate1.month].days = 3;
-    let testDate2 = { ...testDate1 };
+    const testDate2 = { ...testDate1 };
 
     // Test same time
     expect(areWithinTime(testDate1, testDate2, months, { minutes: 0 })).toBe(true);
@@ -432,11 +432,11 @@ test('areWithinTime gives the correct answers when checking minutes', () => {
 })
 
 test('areWithinTime gives the correct answers when checking hours', () => {
-    let testDate1 = { ...starterDateTime };
+    const testDate1 = { ...starterDateTime };
     const months = getTestCalendar().months
     if (months[testDate1.month].days === 1)
         months[testDate1.month].days = 3;
-    let testDate2 = { ...testDate1 };
+    const testDate2 = { ...testDate1 };
 
     // Test same day
     testDate1.day = 1;
@@ -512,11 +512,11 @@ test('areWithinTime gives the correct answers when checking hours', () => {
 })
 
 test('areWithinTime gives the correct answers when checking days', () => {
-    let testDate1 = { ...starterDateTime };
+    const testDate1 = { ...starterDateTime };
     const months = getTestCalendar().months;
     if (months[testDate1.month].days === 1)
         months[testDate1.month].days = 3;
-    let testDate2 = { ...testDate1 };
+    const testDate2 = { ...testDate1 };
 
     // Test same month
     testDate1.day = 1;
@@ -575,13 +575,13 @@ test('areWithinTime gives the correct answers when checking days', () => {
 // getTimeBetween
 
 test('getTimeBetween gives the correct answers', () => {
-    let testDate1 = { ...starterDateTime };
+    const testDate1 = { ...starterDateTime };
     const months = getTestCalendar().months;
     if (months[testDate1.month].days === 1)
         months[testDate1.month].days = 3;
-    let testDate2 = { ...testDate1 };
-    let timeBetween = { minutes: 0, hours: 0, days: 0 };
-    let negTimeBetween = { ...timeBetween };
+    const testDate2 = { ...testDate1 };
+    const timeBetween = { minutes: 0, hours: 0, days: 0 };
+    const negTimeBetween = { ...timeBetween };
 
     // Test same time
     expect(getTimeBetween(testDate1, testDate2, months)).toEqual(timeBetween);

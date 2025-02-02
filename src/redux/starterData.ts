@@ -4,22 +4,22 @@ import type { TrackerButton, TrackerCalendar, TrackerEvent } from "../shared/typ
 
 export const EXAMPLE_BUTTONS: TrackerButton[] = [
   {
-    id: 0,
+    id: "af0a36f1-86f1-4c99-83e6-db0ed65e8b08",
     label: "1 Min",
     minutes: 1,
   },
   {
-    id: 1,
+    id: "de18007f-e954-4593-aaa5-2fa8cc936b9c",
     label: "30 Min",
     minutes: 30,
   },
   {
-    id: 2,
+    id: "0b71ded9-86dd-46e6-ae68-83d70cc9ba8e",
     label: "1 Day",
     days: 1,
   },
   {
-    id: 3,
+    id: "2c44833f-c52f-40c9-ad79-bd33c1a28401",
     label: "1 Month",
     days: 30,
   },
@@ -27,7 +27,7 @@ export const EXAMPLE_BUTTONS: TrackerButton[] = [
 
 export const EXAMPLE_EVENTS: TrackerEvent[] = [
   {
-    id: 0,
+    id: "6cdbe2dd-1505-4acd-9f7b-2a55de094024",
     label: "Guards Arrive",
     icon: EventIcon.dice,
     hour: 18,
@@ -37,7 +37,7 @@ export const EXAMPLE_EVENTS: TrackerEvent[] = [
     year: 12,
   },
   {
-    id: 1,
+    id: "f774c108-eca1-4f36-a234-c0262c8a3307",
     label: "Dragon Returns",
     icon: EventIcon.dragon,
     hour: 19,
@@ -47,7 +47,7 @@ export const EXAMPLE_EVENTS: TrackerEvent[] = [
     year: 12,
   },
   {
-    id: 2,
+    id: "4110f92e-fdbf-48ac-8b0e-3df22f4918bc",
     label: "Portal Opens",
     icon: EventIcon.fire,
     hour: 17,
@@ -57,7 +57,7 @@ export const EXAMPLE_EVENTS: TrackerEvent[] = [
     year: 12,
   },
   {
-    id: 3,
+    id: "9042a547-c3dc-4afc-a3a3-0d9c7c0227a0",
     label: "Portal Closes",
     icon: EventIcon.skull,
     hour: 20,

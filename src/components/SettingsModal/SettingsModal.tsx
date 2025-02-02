@@ -26,7 +26,7 @@ export default function SettingsModal({ show, toggle }: Props) {
     useEffect(() => {
         if(formik?.values.dateFormat === DateFormat.None)
             formik?.setFieldValue("showSeasonIcon", false)
-    }, [formik?.values.dateFormat, formik?.touched.dateFormat, formik?.setFieldValue])
+    }, [formik, formik?.values.dateFormat, formik?.setFieldValue])
 
     const handleSubmit = async (values: TrackerSettings) => {
         dispatch(updateSettings(values))

@@ -186,7 +186,7 @@ export const areWithinTime = (
   maxTimeBetween.hours = maxTimeBetween.hours ? maxTimeBetween.hours : 0;
   maxTimeBetween.days = maxTimeBetween.days ? maxTimeBetween.days : 0;
   let maxMinutes = maxTimeBetween.minutes + maxTimeBetween.hours * 60;
-  let maxDays = maxTimeBetween.days + Math.floor(maxMinutes / minutesInADay);
+  const maxDays = maxTimeBetween.days + Math.floor(maxMinutes / minutesInADay);
   maxMinutes = maxMinutes % minutesInADay;
 
   // Convert dates to minutes and days

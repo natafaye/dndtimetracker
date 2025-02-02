@@ -7,6 +7,7 @@ import { selectButtonList, setButtonList } from '../../redux';
 import { TrackerButton } from '../../shared/types';
 import ButtonEditor from './ButtonEditor';
 import { buttonListValidationSchema as validationSchema } from './buttonListValidationSchema';
+import { v4 as uuid } from "uuid"
 
 type Props = {
   show: boolean,
@@ -59,7 +60,7 @@ export default function EditButtonListModal({ show, toggle }: Props) {
                           type="button"
                           className="btn btn-primary"
                           onClick={() => arrayHelpers.push({
-                            id: values.buttonList.slice(-1)[0].id + 1,
+                            id: uuid(),
                             label: 'New Button',
                             minutes: 10
                           })}

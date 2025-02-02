@@ -6,10 +6,10 @@ import { EventIcon } from "../../shared/constants"
 type EventIconKey = keyof typeof EventIcon
 const iconKeys = Object.keys(EventIcon) as EventIconKey[]
 
-type Props = {} & FieldHookConfig<typeof EventIcon>
+type Props = FieldHookConfig<typeof EventIcon>
 
 export default function IconPicker({ ...props }: Props) {
-    const [field, _, helper] = useField(props)
+    const [field, , helper] = useField(props)
 
     const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
         helper.setValue(EventIcon[event.target.value as EventIconKey])

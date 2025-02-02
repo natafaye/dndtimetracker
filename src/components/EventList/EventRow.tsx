@@ -10,7 +10,7 @@ import classNames from 'classnames';
 type Props = {
     event: TrackerEvent
     onDelete: (event: TrackerEvent) => void
-    onEdit: (id: number) => void
+    onEdit: (id: TrackerEvent['id']) => void
 }
 
 export default function EventRow({ event, onDelete, onEdit }: Props) {

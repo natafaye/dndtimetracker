@@ -34,7 +34,9 @@ function TimeTrackerListEditor({
             season: isMonths ? Season.Winter : undefined
         })
         formik.setFieldValue(name, newList);
-    }, [length])
+    }, [length]) // eslint-disable-line react-hooks/exhaustive-deps
+    // We don't want defaultName, formik, isMonths, or name as dependencies, 
+    // because only a length change should trigger the list to be remade
 
     const errors = formik.errors[name] as FormikErrors<CalendarListItem[]>
 

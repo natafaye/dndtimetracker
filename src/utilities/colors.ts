@@ -28,8 +28,8 @@ export const mixColors = function (
   // loop through each of the 3 hex pairs—red, green, and blue
   for (let i = 0; i <= 5; i += 2) {
     // extract the current pairs
-    let v1 = hexToDecimal(color1.substring(i, i + 2));
-    let v2 = hexToDecimal(color2.substring(i, i + 2));
+    const v1 = hexToDecimal(color1.substring(i, i + 2));
+    const v2 = hexToDecimal(color2.substring(i, i + 2));
     // combine the current pairs from each source color, according to the specified weight
     let val = decimalToHex(Math.round(v2 + (v1 - v2) * (weight1 / 100.0)));
     // prepend a '0' if val results in a single digit

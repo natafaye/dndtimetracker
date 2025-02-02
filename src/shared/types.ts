@@ -24,12 +24,12 @@ export type DateTimeAmount = {
 // Buttons & Events
 
 export type TrackerButton = DateTimeAmount & {
-    id: number
+    id: string
     label: string
 }
 
 export type TrackerEvent = TrackerTime & TrackerDate & {
-    id: number
+    id: string
     label: string
     icon: IconProp
 }
