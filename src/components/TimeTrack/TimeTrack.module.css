@@ -1,0 +1,37 @@
+.timeEventsDisplay {
+    position: relative;
+    height: 34px;
+    overflow: hidden;
+    margin-bottom: 3px;
+}
+
+.timeEventsDisplay div {
+    position: absolute;
+    margin-left: -5px;
+}
+
+.timeEventsDisplay div button {
+    color: white;
+}
+
+.timeCurrentMarker {
+    border-left: 2px solid white;
+    margin-left: -3px;
+    left: 50%;
+    height: 100%;
+}
+
+.pastTimeEvent button {
+    color: lightgray;
+}
+
+.hourMarker {
+    font-size: 0.8rem;
+    color: white;
+    padding: 0.48rem 0 0.48rem 0;
+    opacity: 15%;
+}
+
+.hourMarker.pastTimeEvent {
+    color: lightgray;
+}

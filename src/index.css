@@ -1,0 +1,26 @@
+.collapsable-area {
+  padding-left: 28px;
+}
+
+.form-text-without-label {
+  margin-top: 37px;
+}
+
+.form-text-with-label {
+  margin-top: 5px;
+}
+
+.modal-hr {
+  margin-top: 0;
+  margin-left: -24px;
+  margin-right: -24px;
+}
+
+.error-text {
+  margin-top: 5px;
+  margin-bottom: 0px;
+}
+
+.striped> :nth-child(odd) {
+  background-color: #f1f1f1;
+}

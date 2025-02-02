@@ -1,0 +1,36 @@
+.daysDisplay table {
+    table-layout: fixed;
+    margin-bottom: 0;
+}
+
+.daysDisplay table td {
+    background-color: transparent;
+    font-size: 0.8rem;
+    padding: 0.5rem 0 0.6rem 0;
+    text-align: center;
+    color: white;
+    font-weight: 500;
+}
+
+.daysDisplay table td button,
+.daysDisplay table td button:link,
+.daysDisplay table td button:hover,
+.daysDisplay table td button:active {
+    color: white;
+}
+
+td.pastDay {
+    color: lightgray;
+}
+
+td.pastDay button {
+    color: lightgray;
+}
+
+td.currentDay {
+    background-color: white;
+}
+
+td.currentDay button {
+    color: inherit;
+}
