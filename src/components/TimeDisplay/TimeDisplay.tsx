@@ -5,7 +5,6 @@ import { timeToString, dateToString, getTimeBetween, getSeasonIcon, getColorForT
 import { useSelector } from 'react-redux';
 import { selectCalendar, selectNow, selectSettings } from '../../redux';
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
-import styles from "./TimeDisplay.module.css"
 
 export default function TimeDisplay() {
     const now = useSelector(selectNow)
@@ -50,12 +49,12 @@ export default function TimeDisplay() {
     }
 
     return (
-        <div className={styles.timeDisplay} style={timeBackgroundStyle}>
-            <p>{timeToString(now, calendar, timeFormat)}</p>
-            <p className="date-text">
+        <div className="text-center w-100 text-white pt-4 pb-2" style={timeBackgroundStyle}>
+            <h3 className="display-5">{timeToString(now, calendar, timeFormat)}</h3>
+            <h4 className="fs-6 fw-normal mt-2">
                 {dateToString(now, calendar, dateFormat)}&nbsp;&nbsp;
                 {showSeasonIcon && <FontAwesomeIcon icon={seasonIcon as IconProp} />}
-            </p>
+            </h4>
             {showTimeTrack && <TimeTrack />}
             {showDaysTrack && <DaysTrack />}
         </div>

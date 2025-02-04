@@ -1,4 +1,3 @@
-import { useRef, useState } from "react"
 import { OverlayTrigger, Tooltip } from "react-bootstrap"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { compareChronologically, dateToString, timeToString } from "../../utilities"
@@ -11,9 +10,6 @@ type Props = {
 }
 
 export default function DayEventIcon({ dayEvents, calendar }: Props) {
-  const [show, setShow] = useState(false)
-  const target = useRef(null)
-
   return (
     <>
       <OverlayTrigger placement="top" overlay={(
@@ -28,9 +24,7 @@ export default function DayEventIcon({ dayEvents, calendar }: Props) {
           ))}
         </Tooltip>
       )}>
-        <button ref={target} type="button" className="btn btn-link p-0" onClick={() => setShow(!show)}>
-          <FontAwesomeIcon icon={(dayEvents.length === 1) ? dayEvents[0].icon : faSquare} />
-        </button>
+        <FontAwesomeIcon icon={(dayEvents.length === 1) ? dayEvents[0].icon : faSquare} className="text-white" />
       </OverlayTrigger>
     </>
   )

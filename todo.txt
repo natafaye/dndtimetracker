@@ -1,6 +1,3 @@
-Streamline CSS
 Fix create event
 Get calendar modal to open
-Icons in time track turn blue on mouseover
-Icons in time track don't show popover on mouseover
-Icons in days track are vertically off-center
+Current day number is not visible

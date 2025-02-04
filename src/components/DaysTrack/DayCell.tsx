@@ -2,6 +2,7 @@ import { useSelector } from 'react-redux';
 import { selectCalendar, selectEventList, selectNow, selectSettings } from '../../redux';
 import { SKY_COLORS } from '../../shared/constants';
 import DayEventIcon from './DayEventIcon';
+import classNames from 'classnames';
 
 type Props = {
     index: number
@@ -54,16 +55,19 @@ export default function DayCell({ index }: Props) {
         dayEvents = eventList.filter(event => event.day === dayNumber);
     }
 
-    const currentDayStyle = {
-        color: (now.minutes <= 30) ? SKY_COLORS[now.hour] : SKY_COLORS[now.hour + 1]
-    }
-
     return (
-        <td
-            className={dayNumber < now.day ? "past-day" : dayNumber === now.day ? "current-day" : ""}
-            style={dayNumber === now.day ? currentDayStyle : undefined}
+        <div
+            className={classNames(
+                "rounded py-1 px-2 flex-grow-1",
+                dayNumber < now.day && "text-white-50",
+                dayNumber === now.day && "border border-white",
+            )}
+            style={{ flexBasis: 0 }}
         >
-            {dayEvents.length > 0 ? <DayEventIcon dayEvents={dayEvents} calendar={calendar}/> : dayDisplay}
-        </td>
+            {dayEvents.length > 0 ?
+                <DayEventIcon dayEvents={dayEvents} calendar={calendar} /> :
+                dayDisplay
+            }
+        </div>
     )
 }

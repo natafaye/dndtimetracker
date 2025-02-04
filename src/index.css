@@ -1,3 +1,7 @@
+body {
+  background-color: black;
+}
+
 /* Put a bunch of extra margin on the top if there's no label to keep it inline with other fields */
 .form-text-without-label {
   margin-top: 37px;
@@ -10,7 +14,7 @@
   margin-right: -24px;
 }
 
-/* Give a striped effect to any list */
-.striped > :nth-child(odd) {
-  background-color: #f1f1f1;
+/* A smaller font size */
+.fs-7 {
+  font-size: 0.8rem;
 }

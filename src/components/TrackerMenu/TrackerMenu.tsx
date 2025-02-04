@@ -24,7 +24,7 @@ export default function TrackerMenu({ onCreateEvent }: Props) {
 
     return (
         <>
-            <Dropdown className="float-end">
+            <Dropdown>
                 <Dropdown.Toggle variant="link-secondary" size="sm">
                     <FontAwesomeIcon icon={faEllipsisH} size="lg" />
                 </Dropdown.Toggle>

@@ -31,8 +31,9 @@ export default function HourMarker({ hour }: Props) {
         <div
             className={classNames(
                 styles.hourMarker,
-                minutesBetween <= 0 && styles.pastTimeEvent)
-            }
+                minutesBetween <= 0 && styles.pastTimeEvent,
+                "position-absolute"
+            )}
             style={{ left: minutePercentageFromLeft + "%" }}>
             {hourToString(hourDate.hour, true)}
         </div>

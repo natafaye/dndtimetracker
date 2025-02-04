@@ -21,22 +21,30 @@ export default function EventRow({ event, onDelete, onEdit }: Props) {
     const timeBetween = getTimeBetween(now, event, calendar.months);
 
     return (
-        <div key={event.id} className={classNames(inPast && "text-muted", "p-2 pe-0")}>
-            <span className="d-inline-block"><FontAwesomeIcon icon={event.icon} fixedWidth />&nbsp;&nbsp;{event.label}</span>
-            <Dropdown className="float-end p-0">
-                <Dropdown.Toggle variant="link" size="sm">
-                    <FontAwesomeIcon icon={faEllipsisH} size="lg" />
-                </Dropdown.Toggle>
-                <Dropdown.Menu align="end">
-                    <Dropdown.Item onClick={() => onEdit(event.id)}>
-                        <FontAwesomeIcon icon={faEdit} fixedWidth />&nbsp;&nbsp;Edit
-                    </Dropdown.Item>
-                    <Dropdown.Item onClick={() => onDelete(event)}>
-                        <FontAwesomeIcon icon={faTrashAlt} fixedWidth />&nbsp;&nbsp;Delete
-                    </Dropdown.Item>
-                </Dropdown.Menu>
-            </Dropdown>
-            <span className="d-inline-block float-end">{timeAmountToString(timeBetween, true)}</span>
-        </div>
+        <tr className={"align-middle"}>
+            <td>
+                <span className={classNames("d-flex align-items-center gap-2", inPast && "text-white-50")}>
+                    <FontAwesomeIcon icon={event.icon} fixedWidth />{event.label}
+                </span>
+            </td>
+            <td className={classNames("text-end", inPast && "text-white-50")}>
+                {timeAmountToString(timeBetween, true)}
+            </td>
+            <td className="text-end" style={{ width: "2rem" }}>
+                <Dropdown>
+                    <Dropdown.Toggle variant="link" size="sm" className={(inPast ? "text-white-50" : "text-white")}>
+                        <FontAwesomeIcon icon={faEllipsisH} size="lg" />
+                    </Dropdown.Toggle>
+                    <Dropdown.Menu align="end" variant="dark">
+                        <Dropdown.Item onClick={() => onEdit(event.id)}>
+                            <FontAwesomeIcon icon={faEdit} fixedWidth />&nbsp;&nbsp;Edit
+                        </Dropdown.Item>
+                        <Dropdown.Item onClick={() => onDelete(event)}>
+                            <FontAwesomeIcon icon={faTrashAlt} fixedWidth />&nbsp;&nbsp;Delete
+                        </Dropdown.Item>
+                    </Dropdown.Menu>
+                </Dropdown>
+            </td>
+        </tr>
     );
 }

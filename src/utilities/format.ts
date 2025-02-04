@@ -98,6 +98,9 @@ export const timeAmountToString = (
 ) => {
   let timeString = "";
 
+  if(!timeAmount.minutes && !timeAmount.hours && !timeAmount.days)
+    return "right now"
+
   if (timeAmount.days) timeString += Math.abs(timeAmount.days) + "d";
   if (timeAmount.hours && (!simplify || Math.abs(timeAmount.days || 0) < 5))
     timeString += (timeString ? ", " : "") + Math.abs(timeAmount.hours) + "h";

@@ -16,7 +16,7 @@ export function ConfirmModal({ show, toggle, message, buttonLabel, callback }: C
     }
 
     return (
-        <Modal show={show} onHide={toggle} size="sm">
+        <Modal show={show} onHide={toggle} size="sm" data-bs-theme="dark" className="text-white">
             <Modal.Body>
                 <p>{message}</p>
             </Modal.Body>

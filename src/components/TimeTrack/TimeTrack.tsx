@@ -4,6 +4,7 @@ import HourMarker from './HourMarker';
 import { selectCalendar, selectEventList, selectHoursInTimeTrack, selectNow } from '../../redux';
 import { areWithinTime, compareChronologically } from '../../utilities';
 import styles from "./TimeTrack.module.css"
+import classNames from 'classnames';
 
 export default function TimeTrack() {
     const now = useSelector(selectNow)
@@ -17,7 +18,7 @@ export default function TimeTrack() {
     }
 
     return (
-        <div className={styles.timeEventsDisplay}>
+        <div className={classNames(styles.timeEventsDisplay, "mt-4 position-relative")}>
             {[...Array(hoursInTimeTrack + 1)].map((_, index) => (
                 <HourMarker
                     key={index}
@@ -33,7 +34,7 @@ export default function TimeTrack() {
                         event={event}
                     />
                 ))}
-            <div className={styles.timeCurrentMarker}></div>
+            <div className={classNames(styles.timeCurrentMarker, "position-absolute")}></div>
         </div>
     );
 }
