@@ -24,7 +24,7 @@ export default function StartDayOfWeekInput({ daysOfTheWeek, errors }: Props) {
                 <label className="text-secondary">starts on a</label>
                 <Field
                     as="select"
-                    className="form-control w-25"
+                    className="form-select w-25"
                     name="startDayOfWeekOfYear.dayOfWeek"
                     id="startDayOfWeekOfYearDay"
                 >

@@ -45,8 +45,8 @@ export default function SettingsModal({ show, toggle }: Props) {
                         <Modal.Body className="p-4">
                             <div className="row">
                                 <div className="col-5">
-                                    <FormLabel htmlFor="timeDisplay">Time Display</FormLabel>
-                                    <Field as="select" name="timeDisplay" id="timeDisplay" className="form-control">
+                                    <FormLabel htmlFor="timeFormat">Time Format</FormLabel>
+                                    <Field as="select" name="timeFormat" id="timeFormat" className="form-select">
                                         <option value={TimeFormat.Hour}>Only show the hour</option>
                                         <option value={TimeFormat.Hour_Minutes}>Show hour and minutes</option>
                                         <option value={TimeFormat.Hour_Period}>Show hour and period</option>
@@ -61,12 +61,12 @@ export default function SettingsModal({ show, toggle }: Props) {
                             </div>
                             <div className="row">
                                 <div className="col-5">
-                                    <FormLabel htmlFor="dateDisplay">Date Display</FormLabel>
+                                    <FormLabel htmlFor="dateFormat">Date Format</FormLabel>
                                     <Field
                                         as="select"
-                                        name="dateDisplay"
-                                        id="dateDisplay"
-                                        className="form-control"
+                                        name="dateFormat"
+                                        id="dateFormat"
+                                        className="form-select"
                                     >
                                         <option value={DateFormat.None}>Don't show date</option>
                                         <option value={DateFormat.Day}>Show day</option>

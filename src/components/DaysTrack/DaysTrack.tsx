@@ -10,7 +10,7 @@ export default function DaysTrack() {
         return <div />;
 
     return (
-        <div className="d-flex mt-4 mb-2 justify-content-around gap-3">
+        <div className="d-flex mt-4 mb-2 justify-content-around">
             {[...Array(daysInDaysTrack)].map((_, index) => (
                 <DayCell key={index} index={index} />
             ))}

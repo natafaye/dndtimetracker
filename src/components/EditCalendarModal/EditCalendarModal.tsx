@@ -63,7 +63,7 @@ export default function EditCalendarModal({ show, toggle }: Props) {
                       as="select"
                       name="periodsInADay"
                       id="periodsInADay"
-                      className="form-control"
+                      className="form-select"
                       onChange={
                         (event: ChangeEvent<HTMLSelectElement>) =>
                           setFieldValue("periodsInADay", parseInt(event.target.value))
