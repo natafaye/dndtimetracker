@@ -6,6 +6,7 @@ import { Button, Collapse } from 'react-bootstrap';
 import ListEditorItem from './ListEditorItem';
 import classNames from 'classnames';
 import style from "./ListEditor.module.css"
+import { faCaretDown, faCaretRight } from '@fortawesome/free-solid-svg-icons';
 
 type Props = {
     title: string
@@ -17,7 +18,7 @@ type Props = {
     isMonths?: boolean
 }
 
-function TimeTrackerListEditor({
+export default function ListEditor({
     title, list, name, length, defaultName, renderLabel, isMonths = false
 }: Props) {
     const [isOpen, setIsOpen] = useState(false);
@@ -47,12 +48,12 @@ function TimeTrackerListEditor({
             <div className="col-12">
                 <Button type="button"
                     variant="link"
-                    className="pl-0"
+                    className="ps-0"
                     onClick={() => setIsOpen(!isOpen)}
                     aria-expanded={isOpen}
                     aria-controls={editAreaID}
                 >
-                    <FontAwesomeIcon icon={(isOpen) ? "caret-down" : "caret-right"} fixedWidth className="text-primary" />
+                    <FontAwesomeIcon icon={(isOpen) ? faCaretDown : faCaretRight} fixedWidth className="text-primary" />
                     <span className="d-inline-block ms-1">{title}</span>
                 </Button>
             </div>
@@ -60,7 +61,7 @@ function TimeTrackerListEditor({
                 <ul className="list-unstyled" id={editAreaID}>
                     <FieldArray name={name} render={() => <>
                         {isMonths &&
-                            <li className="row">
+                            <li className="row mb-2">
                                 {renderLabel &&
                                     <div className="col-2"></div>
                                 }
@@ -81,7 +82,7 @@ function TimeTrackerListEditor({
                                 label={renderLabel && renderLabel(item, index, list)}
                                 name={`${name}[${index}]`}
                                 isMonth={isMonths}
-                                errors={errors[index]}
+                                errors={errors && errors[index]}
                                 key={item.id}
                             />
                         ))}
@@ -91,5 +92,3 @@ function TimeTrackerListEditor({
         </div>
     );
 }
-
-export default TimeTrackerListEditor;

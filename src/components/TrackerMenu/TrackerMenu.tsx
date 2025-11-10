@@ -25,10 +25,10 @@ export default function TrackerMenu({ onCreateEvent }: Props) {
     return (
         <>
             <Dropdown>
-                <Dropdown.Toggle variant="link-secondary" size="sm">
+                <Dropdown.Toggle variant="link" size="sm" className="text-white">
                     <FontAwesomeIcon icon={faEllipsisH} size="lg" />
                 </Dropdown.Toggle>
-                <Dropdown.Menu align="end">
+                <Dropdown.Menu align="end" variant="dark">
                     <Dropdown.Item onClick={onCreateEvent}>
                         <FontAwesomeIcon icon={faPlus} />&nbsp;&nbsp;Add Event
                     </Dropdown.Item>

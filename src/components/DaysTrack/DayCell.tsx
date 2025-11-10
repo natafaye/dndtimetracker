@@ -1,6 +1,5 @@
 import { useSelector } from 'react-redux';
 import { selectCalendar, selectEventList, selectNow, selectSettings } from '../../redux';
-import { SKY_COLORS } from '../../shared/constants';
 import DayEventIcon from './DayEventIcon';
 import classNames from 'classnames';
 

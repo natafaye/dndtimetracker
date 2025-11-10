@@ -2,6 +2,8 @@ import { Button } from 'react-bootstrap';
 import type { DateTimeAmount } from '../../shared/types';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectButtonList, addTimeToNow } from '../../redux';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPlus } from '@fortawesome/free-solid-svg-icons';
 
 export default function ButtonList() {
     const buttonList = useSelector(selectButtonList)
@@ -20,7 +22,7 @@ export default function ButtonList() {
                 className="me-1 mb-1"
                 onClick={() => addTime(button)}
             >
-                {button.label}
+                <FontAwesomeIcon icon={faPlus} className="me-1"/>{button.label}
             </Button>
         ))}
     </div>

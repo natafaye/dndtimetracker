@@ -11,9 +11,9 @@ type Props = {
 export default function StartDayOfWeekInput({ daysOfTheWeek, errors }: Props) {
     return (
         <div className="col">
-            <FormLabel htmlFor="startDayOfWeekOfYearYear">Start Day of the Week</FormLabel>
-            <div className="form-inline">
-                <label className="text-secondary me-2">Year</label>
+            <FormLabel htmlFor="startDayOfWeekOfYearYear" className="mb-2">Start Day of the Week</FormLabel>
+            <div className="d-flex align-items-center gap-2 mb-3">
+                <label className="text-secondary">Year</label>
                 <Field
                     type="number"
                     name="startDayOfWeekOfYear.year"
@@ -21,7 +21,7 @@ export default function StartDayOfWeekInput({ daysOfTheWeek, errors }: Props) {
                     min="1"
                     className={(errors && errors.year) ? "form-control w-25 is-invalid" : "form-control w-25"}
                 />
-                <label className="text-secondary me-2 ms-2">starts on a</label>
+                <label className="text-secondary">starts on a</label>
                 <Field
                     as="select"
                     className="form-control w-25"
@@ -32,7 +32,7 @@ export default function StartDayOfWeekInput({ daysOfTheWeek, errors }: Props) {
                         <option value={index} key={index}>{dayOfWeek.name}</option>
                     ))}
                 </Field>
-                <ErrorMsg name="startDayOfWeekOfYear.year" className="ms-2"/>
+                <ErrorMsg name="startDayOfWeekOfYear.year"/>
             </div>
         </div>
     );

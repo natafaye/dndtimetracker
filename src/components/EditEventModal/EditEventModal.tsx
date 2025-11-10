@@ -43,7 +43,7 @@ export default function EditEventModal({ show, toggle, eventId }: Props) {
     }
 
     return (
-        <Modal show={show} onHide={toggle}>
+        <Modal show={show} onHide={toggle} data-bs-theme="dark" className="text-white">
             <Modal.Header closeButton>Edit Event</Modal.Header>
             <Formik
                 initialValues={event}

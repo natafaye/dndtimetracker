@@ -9,9 +9,8 @@ body {
 
 /* A horizontal rule in a modal needs to extend out into the padding a bit */
 .modal-hr {
-  margin-top: 0;
-  margin-left: -24px;
-  margin-right: -24px;
+  margin-left: -1rem;
+  margin-right: -1rem;
 }
 
 /* A smaller font size */

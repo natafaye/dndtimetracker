@@ -1,14 +1,15 @@
 import { Formik, Form, Field } from 'formik';
+import { ChangeEvent } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { hourToString } from '../../utilities';
-import ListEditor from './ListEditor';
-import { selectCalendar, setCalendar } from '../../redux';
-import { ConfirmModal, useConfirm } from '../ConfirmModal';
-import { TrackerCalendar } from '../../shared/types';
 import { FormLabel, Modal } from 'react-bootstrap';
+import ListEditor from './ListEditor';
 import StartDayOfWeekInput from './StartDayOfWeekInput';
-import { calendarValidationSchema } from './calendarValidationSchema';
 import ErrorMsg from '../ErrorMsg';
+import { ConfirmModal, useConfirm } from '../ConfirmModal';
+import { selectCalendar, setCalendar } from '../../redux';
+import { TrackerCalendar } from '../../shared/types';
+import { hourToString } from '../../utilities';
+import { calendarValidationSchema } from './calendarValidationSchema';
 
 type Props = {
   show: boolean
@@ -24,16 +25,15 @@ export default function EditCalendarModal({ show, toggle }: Props) {
 
   // Confirm that they want to submit if they're turning the calendar on or off
   const startSubmit = (values: TrackerCalendar) => {
-    if (calendar.useCalendar !== values.useCalendar) {
-      const message = "Are you sure you want to turn " +
-        (values.useCalendar ? "on" : "off") +
-        " the calendar? This will change the current date and"
-      " the dates of your events. It cannot be undone."
-      confirm({ message, buttonLabel: "OK", callback: () => finishSubmit(values) })
-    }
-    else {
+    if (calendar.useCalendar === values.useCalendar) {
       finishSubmit(values)
+      return
     }
+    const message = "Are you sure you want to turn " +
+      (values.useCalendar ? "on" : "off") +
+      " the calendar? This will change the current date and" +
+      " the dates of your events. It cannot be undone."
+    confirm({ message, buttonLabel: "OK", callback: () => finishSubmit(values) })
   }
 
   const finishSubmit = async (values: TrackerCalendar) => {
@@ -47,13 +47,13 @@ export default function EditCalendarModal({ show, toggle }: Props) {
   return (
     <>
       <ConfirmModal {...confirmProps} />
-      <Modal isOpen={show} onHide={toggle} size="lg">
+      <Modal show={show} onHide={toggle} size="lg" data-bs-theme="dark" className="text-white">
         <Modal.Header closeButton>Calendar</Modal.Header>
         <Formik
           initialValues={{ ...calendar }}
           onSubmit={startSubmit}
           validationSchema={calendarValidationSchema}>
-          {({ isSubmitting, values, errors }) => (
+          {({ isSubmitting, values, errors, setFieldValue }) => (
             <Form>
               <Modal.Body className="pt-4 pl-4 pr-4 pb-0">
                 <div className="row">
@@ -64,12 +64,16 @@ export default function EditCalendarModal({ show, toggle }: Props) {
                       name="periodsInADay"
                       id="periodsInADay"
                       className="form-control"
+                      onChange={
+                        (event: ChangeEvent<HTMLSelectElement>) =>
+                          setFieldValue("periodsInADay", parseInt(event.target.value))
+                      }
                     >
                       {periodsInADayOptions.map((num) => (
                         <option value={num} key={num}>{num}</option>
                       ))}
                     </Field>
-                    <ErrorMsg name="periodsInADay"/>
+                    <ErrorMsg name="periodsInADay" />
                   </div>
                 </div>
                 <ListEditor
@@ -113,7 +117,7 @@ export default function EditCalendarModal({ show, toggle }: Props) {
                             min="1" max="50"
                             className={(errors.monthsInAYear) ? "form-control is-invalid" : "form-control"}
                           />
-                          <ErrorMsg name="monthsInAYear"/>
+                          <ErrorMsg name="monthsInAYear" />
                         </div>
                       </div>
                     </div>
@@ -135,7 +139,7 @@ export default function EditCalendarModal({ show, toggle }: Props) {
                           min="2" max="30"
                           className={(errors.daysInAWeek) ? "form-control is-invalid" : "form-control"}
                         />
-                        <ErrorMsg name="daysInAWeek"/>
+                        <ErrorMsg name="daysInAWeek" />
                       </div>
                     </div>
                     <ListEditor
@@ -145,7 +149,7 @@ export default function EditCalendarModal({ show, toggle }: Props) {
                       list={values.daysOfTheWeek}
                       defaultName="Day of the Week"
                     />
-                    <div className="row">
+                    <div className="row my-2">
                       <StartDayOfWeekInput
                         daysOfTheWeek={values.daysOfTheWeek}
                         errors={errors.startDayOfWeekOfYear}

@@ -87,4 +87,6 @@ export const setCalendarReducer = (
       ...fixDate(event, newCalendar),
     }));
   }
+
+  state.calendar = newCalendar;
 };

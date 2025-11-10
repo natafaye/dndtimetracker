@@ -11,6 +11,7 @@ type Props = {
     isMonth: boolean
     errors?: FormikErrors<CalendarListItem>
 }
+
 export default function ListEditorItem({ label, name, isMonth, errors }: Props) {
     const nameId = useId()
 
@@ -29,7 +30,7 @@ export default function ListEditorItem({ label, name, isMonth, errors }: Props) 
                 <>
                     <div className="col-2">
                         <Field type="number" name={`${name}.days`} min="1" max="400"
-                            className={(errors as FormikErrors<Month>).days ? "form-control is-invalid" : "form-control"} />
+                            className={(errors as FormikErrors<Month>)?.days ? "form-control is-invalid" : "form-control"} />
                     </div>
                     <div className="col-2">
                         <Field as="select" name={`${name}.season`} className="form-control">

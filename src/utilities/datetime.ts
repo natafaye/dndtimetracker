@@ -98,7 +98,7 @@ export const addTime = (
   }
 
   newDay += days ? days : 0;
-  if (newDay > calendar.months[newMonth].days || newDay < 1) {
+  if (calendar.useCalendar && (newDay > calendar.months[newMonth].days || newDay < 1)) {
     const newDate = getDateFromDayOfYear(
       getDayOfYearFromDate(newDay, newMonth, calendar.months),
       newYear,

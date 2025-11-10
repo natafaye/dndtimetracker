@@ -1,3 +1,1 @@
 Fix create event
-Get calendar modal to open
-Current day number is not visible

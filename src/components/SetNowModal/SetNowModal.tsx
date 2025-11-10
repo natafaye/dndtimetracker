@@ -25,7 +25,7 @@ export default function SetNowModal({ show, toggle }: Props) {
     }
 
     return (
-        <Modal show={show} onHide={toggle}>
+        <Modal show={show} onHide={toggle} data-bs-theme="dark" className="text-white">
             <Modal.Header closeButton>Set Time & Date</Modal.Header>
             <Formik
                 initialValues={{ ...now }}

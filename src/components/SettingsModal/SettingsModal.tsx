@@ -34,7 +34,7 @@ export default function SettingsModal({ show, toggle }: Props) {
     }
 
     return (
-        <Modal show={show} onHide={toggle} size="lg">
+        <Modal show={show} onHide={toggle} size="lg" data-bs-theme="dark" className="text-white">
             <Modal.Header closeButton>Display Settings</Modal.Header>
             <Formik
                 initialValues={{ ...settings }}
