@@ -21,7 +21,7 @@ export default function TimeTracker() {
         <Card className="text-bg-dark">
             <Card.Header className="d-flex justify-content-between align-items-center">
                 <h1 className="fs-6">D&D Time Tracker</h1>
-                <TrackerMenu onCreateEvent={startEditEvent} />
+                <TrackerMenu onCreateEvent={() => startEditEvent()} />
             </Card.Header>
             <Card.Body>
                 <TimeDisplay />

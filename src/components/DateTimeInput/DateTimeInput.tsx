@@ -17,7 +17,7 @@ export default function DateTimeInput({ date, calendar }: Props) {
             <div className="row gy-2">
                 <div className="col-4">
                     <FormLabel htmlFor="hour">Hour</FormLabel>
-                    <Field as="select" id="hour" name="hour" className="form-control">
+                    <Field as="select" id="hour" name="hour" className="form-select">
                         {hoursList.map((hour, index) => (
                             <option value={index} key={index}>{hour}</option>
                         ))}

@@ -34,6 +34,7 @@ export default function EditEventModal({ show, toggle, eventId }: Props) {
     }
 
     const handleSubmit = (values: TrackerEvent) => {
+        console.log(eventId)
         if (eventId !== undefined)
             dispatch(updateEvent(values))
         else
